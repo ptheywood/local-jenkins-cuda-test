@@ -509,7 +509,7 @@ int main(int argc, char *argv[])
 	int retcode = numPasses == numTests ? EXIT_SUCCESS : EXIT_FAILURE;
 
 	printf("testResults: %lu passes of %lu: returnCode %d\n", numPasses, numTests, retcode);
-
+	printf("Random PR change?\n");
 
 
 	// Free arrays.
