@@ -46,9 +46,9 @@ CUDA_ARCH ?= 50 60
 endif
 
 # nvcc gencodes
-# $(foreach sm,$(CUDA_ARCH),$(eval GENCODE_FLAGS += -gencode arch=compute_$(sm),code=sm_$(sm)))
+$(foreach sm,$(CUDA_ARCH),$(eval GENCODE_FLAGS += -gencode arch=compute_$(sm),code=sm_$(sm)))
 HIGHEST_SM := $(lastword $(sort $(CUDA_ARCH)))
-# GENCODE_FLAGS += -gencode arch=compute_$(HIGHEST_SM),code=compute_$(HIGHEST_SM)
+GENCODE_FLAGS += -gencode arch=compute_$(HIGHEST_SM),code=compute_$(HIGHEST_SM)
 CFLAGS = -m64
 
 # Append global defines
