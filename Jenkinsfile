@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'module load libs/CUDA/9.0/binary'
+                sh 'module load libs/CUDA/9.0/binary' || true
                 sh 'make' 
                 archiveArtifacts artifacts: '**/bin/*/*', fingerprint: true 
             }
