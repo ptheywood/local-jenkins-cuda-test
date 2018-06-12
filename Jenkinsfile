@@ -1,11 +1,11 @@
 pipeline {
     agent any
 
+    environment {
+        PATH = "/usr/local/cuda-9.0/bin/:$PATH"
+        LD_LIBRARY_PATH = "/usr/local/cuda-9.0/lib64/:$LD_LIBRARY_PATH"
+    }
     stages {
-        environment {
-            PATH = "/usr/local/cuda-9.0/bin/:$PATH"
-            LD_LIBRARY_PATH = "/usr/local/cuda-9.0/lib64/:$LD_LIBRARY_PATH"
-        }
         stage('Build') {
             steps {
                 sh '. /etc/profile.d/modules.sh || true'
