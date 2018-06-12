@@ -506,7 +506,7 @@ int main(int argc, char *argv[])
 	size_t numPasses = std::count(testResults.begin(), testResults.end(), 0);
 	size_t numTests = testResults.size();
 
-	int retcode = numPasses == numTests;
+	int retcode = numPasses == numTests ? EXIT_SUCCESS : EXIT_FAILURE;
 
 	printf("testResults: %lu passes of %lu: returnCode %d\n", numPasses, numTests, retcode);
 
