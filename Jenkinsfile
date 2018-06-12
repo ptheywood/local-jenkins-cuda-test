@@ -5,6 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 sh '. /etc/profile.d/modules.sh || true'
+                sh 'echo $MODULESHOME'
                 sh 'module load libs/CUDA/9.0/binary || true'
                 sh 'make' 
                 archiveArtifacts artifacts: '**/bin/*/*', fingerprint: true 
