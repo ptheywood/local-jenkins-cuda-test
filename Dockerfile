@@ -20,6 +20,3 @@ CMD ["/bin/bash"]
 WORKDIR /stage
 
 RUN echo "test"
-
-# Print the last commit message in this repository.
-RUN git log -1
