@@ -8,21 +8,15 @@ pipeline {
             }
         }
 
-        stage('NVCC check') {
+        stage('GPU Check') {
             steps {
                 sh 'nvcc --version'
-            }
-        }
-
-        stage('nvidia-smi') {
-            steps {
                 sh 'nvidia-smi'
             }
         }
 
         stage('Build') {
             steps {
-                sh 'nvcc --version'
                 sh 'make' 
                 archiveArtifacts artifacts: '**/bin/*/*', fingerprint: true 
             }
@@ -30,7 +24,6 @@ pipeline {
 
         stage('Test') {
             steps {
-                sh 'nvidia-smi'
                 sh './run_test.sh'
             }
         }
