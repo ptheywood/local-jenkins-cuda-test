@@ -2,6 +2,12 @@ pipeline {
     agent { dockerfile true }
     stages {
 
+         stage('NVCC check') {
+            steps {
+                sh 'nvcc --version'
+            }
+        }
+
         stage('Build') {
             steps {
                 sh 'nvcc --version'
