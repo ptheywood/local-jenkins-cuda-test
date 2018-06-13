@@ -8,6 +8,12 @@ pipeline {
             }
         }
 
+        stage('nvidia-smi') {
+            steps {
+                sh 'nvidia-smi'
+            }
+        }
+
         stage('Build') {
             steps {
                 sh 'nvcc --version'
@@ -18,6 +24,7 @@ pipeline {
 
         stage('Test') {
             steps {
+                sh 'nvidia-smi'
                 sh './run_test.sh'
             }
         }
